@@ -1,0 +1,5 @@
+games,Nintendo,target,@NintendoJP
+games,SonyPlayStation,competitor,@PlayStationJapan
+games,Capcom,competitor,@capcom
+games,BandaiNamco,competitor,@bandainamcoentertainment
+games,Sega,competitor,@SEGA

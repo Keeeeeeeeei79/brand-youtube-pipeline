@@ -1,0 +1,22 @@
+industries:
+  games:
+  - key: nintendojp
+    id: UCkH3CcMfqww9RsZvPRPkAJA
+    company: Nintendo
+    role: target
+  - key: playstationjapan
+    id: UCaghC0OZwAdidMrbvxkcrPg
+    company: SonyPlayStation
+    role: competitor
+  - key: capcom
+    id: UCyuEAZQzRqhcaLZvQd9ZUNA
+    company: Capcom
+    role: competitor
+  - key: bandainamcoentertainment
+    id: UCqly9F4Fr_jf2Y1Cy5hacRg
+    company: BandaiNamco
+    role: competitor
+  - key: sega
+    id: UCVkqs_Q88BDmyaWwjYJ8_Ig
+    company: Sega
+    role: competitor
