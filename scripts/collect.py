@@ -38,7 +38,7 @@ def get_video_stats(video_ids):
 
 def main():
     snapshot_at = datetime.now(timezone.utc).isoformat()
-    date_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    date_str = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M")
     outdir = f"data/raw/{date_str}"
     os.makedirs(outdir, exist_ok=True)
 
