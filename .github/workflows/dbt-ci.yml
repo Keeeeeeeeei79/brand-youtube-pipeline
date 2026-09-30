@@ -1,0 +1,48 @@
+name: dbt CI
+
+on:
+  pull_request:
+    paths:
+      - "models/**"
+      - "tests/**"
+      - "dbt_project.yml"
+      - ".github/workflows/dbt-ci.yml"
+  workflow_dispatch:
+
+jobs:
+  dbt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dbt
+        run: pip install dbt-duckdb
+
+      - name: Use fixture data as data/raw
+        run: |
+          rm -rf data/raw
+          mkdir -p data
+          cp -r tests/fixtures/data/raw data/raw
+
+      - name: Write CI profile
+        run: |
+          mkdir -p ~/.dbt
+          cat > ~/.dbt/profiles.yml << EOF
+          brand_youtube:
+            target: ci
+            outputs:
+              ci:
+                type: duckdb
+                path: ci.duckdb
+                threads: 1
+          EOF
+
+      - name: dbt run
+        run: dbt run --target ci
+
+      - name: dbt test
+        run: dbt test --target ci --exclude assert_data_fresh

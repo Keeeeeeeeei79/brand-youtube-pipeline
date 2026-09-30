@@ -1,0 +1,7 @@
+brand_youtube:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: brand_youtube.duckdb
+      threads: 1

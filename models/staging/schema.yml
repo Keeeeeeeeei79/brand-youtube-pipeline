@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: stg_video_snapshot
+    columns:
+      - name: video_id
+        data_tests: [not_null]
+      - name: snapshot_at
+        data_tests: [not_null]
+      - name: channel_key
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [nintendojp, playstationjapan, capcom, sega, bandainamcoentertainment]
+
+  - name: stg_video_daily
+    columns:
+      - name: video_id
+        data_tests: [not_null]
+      - name: view_count
+        data_tests: [not_null]
