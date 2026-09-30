@@ -41,8 +41,8 @@ jobs:
                 threads: 1
           EOF
 
-      - name: dbt run
-        run: dbt run --target ci
+           - name: dbt run
+        run: dbt run --target ci --profiles-dir ~/.dbt
 
       - name: dbt test
-        run: dbt test --target ci --exclude assert_data_fresh
+        run: dbt test --target ci --profiles-dir ~/.dbt --exclude assert_data_fresh
