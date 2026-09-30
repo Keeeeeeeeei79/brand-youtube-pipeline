@@ -31,15 +31,15 @@ jobs:
       - name: Write CI profile
         run: |
           mkdir -p ~/.dbt
-          cat > ~/.dbt/profiles.yml << EOF
-          brand_youtube:
-            target: ci
-            outputs:
-              ci:
-                type: duckdb
-                path: ci.duckdb
-                threads: 1
-                    EOF
+          printf "%s\n" \
+            "brand_youtube:" \
+            "  target: ci" \
+            "  outputs:" \
+            "    ci:" \
+            "      type: duckdb" \
+            "      path: ci.duckdb" \
+            "      threads: 1" > ~/.dbt/profiles.yml
+          cat ~/.dbt/profiles.yml
 
       - name: dbt run
         run: dbt run --target ci --profiles-dir ~/.dbt
