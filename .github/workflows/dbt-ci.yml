@@ -39,9 +39,9 @@ jobs:
                 type: duckdb
                 path: ci.duckdb
                 threads: 1
-          EOF
+                    EOF
 
-           - name: dbt run
+      - name: dbt run
         run: dbt run --target ci --profiles-dir ~/.dbt
 
       - name: dbt test
